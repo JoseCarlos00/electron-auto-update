@@ -1,0 +1,16 @@
+{
+  "name": "electron-tutorial",
+  "version": "1.0.0",
+  "description": "Tutorial de electron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "dani_adbg",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^29.1.0"
+  }
+}
