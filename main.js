@@ -1,6 +1,27 @@
 // ARCHIVO MAIN
 const { app, BrowserWindow, ipcMain } = require("electron");
+const { updateElectronApp, UpdateSourceType } = require("update-electron-app");
+const log = require("electron-log");
 const path = require("path");
+
+// Inicializar el logger
+// Configura el logger para guardar los logs en un archivo
+log.transports.file.resolvePath = () => path.join(app.getPath("userData"), "logs", "app.log");
+log.transports.file.level = "info";
+log.info("La aplicacion se ha iniciado");
+
+updateElectronApp({
+	updateSource: {
+		type: UpdateSourceType.ElectronPublicUpdateService,
+		repo: "JoseCarlos00/electron-auto-update",
+	},
+	updateInterval: "1 hour",
+	logger: log,
+	loggerSeverity: "info",
+	loggerPrefix: "Update",
+});
+
+if (require("electron-squirrel-startup")) app.quit();
 
 const createWindow = () => {
 	const win = new BrowserWindow({

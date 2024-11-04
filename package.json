@@ -11,6 +11,15 @@
 	},
 	"keywords": [],
 	"author": "Jose Carlos A.R.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JoseCarlos00/electron-auto-update"
+	},
+	"publish": {
+		"provider": "github",
+		"owner": "JoseCarlos00",
+		"repo": "electron-auto-update"
+	},
 	"license": "ISC",
 	"devDependencies": {
 		"@electron-forge/cli": "^7.3.0",
@@ -20,11 +29,13 @@
 		"@electron-forge/plugin-fuses": "^7.3.0",
 		"@electron-forge/publisher-github": "^7.3.0",
 		"@electron/fuses": "^1.7.0",
-		"electron-builder": "^25.1.8",
-		"electron": "^29.1.0"
+		"electron": "^29.1.0",
+		"electron-builder": "^25.1.8"
 	},
 	"dependencies": {
 		"electron-log": "^5.2.0",
-		"env-cmd": "^10.1.0"
+		"electron-squirrel-startup": "^1.0.1",
+		"env-cmd": "^10.1.0",
+		"update-electron-app": "^3.0.0"
 	}
 }
