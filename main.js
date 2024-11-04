@@ -3,6 +3,7 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const { updateElectronApp, UpdateSourceType } = require("update-electron-app");
 const log = require("electron-log");
 const path = require("path");
+const { argv } = require("process");
 
 // Inicializar el logger
 // Configura el logger para guardar los logs en un archivo
@@ -45,4 +46,8 @@ app.on("ready", () => {
 // WINDOWS & LINUX
 app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") app.quit();
+});
+
+ipcMain.handle("get-version", (event, argv) => {
+	return app.getVersion();
 });

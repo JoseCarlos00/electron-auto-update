@@ -1,12 +1,13 @@
 // PUENTE
-const { contextBridge, ipcRenderer } = require('electron');
+const { contextBridge, ipcRenderer } = require("electron");
 
-ipcRenderer.on('btnReply', (_event, args) => {
-  const $ = (selector) => document.querySelector(selector);
-  
-  $('.container').innerText=args
-})
+ipcRenderer.on("btnReply", (_event, args) => {
+	const $ = (selector) => document.querySelector(selector);
 
-contextBridge.exposeInMainWorld('tutorial', {
-  btn: (args) => ipcRenderer.send('button', args)
-})
+	$(".container").innerText = args;
+});
+
+contextBridge.exposeInMainWorld("tutorial", {
+	btn: (args) => ipcRenderer.send("button", args),
+	version: async () => await ipcRenderer.invoke("get-version"),
+});

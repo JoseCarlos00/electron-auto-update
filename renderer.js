@@ -1,8 +1,10 @@
 // ARCHIVO DE NAVEGADOR
-addEventListener('DOMContentLoaded', () => {
-  const $ = (selector) => document.querySelector(selector);
+addEventListener("DOMContentLoaded", async () => {
+	const $ = (selector) => document.querySelector(selector);
 
-  $('#button').addEventListener('click', () => {
-    window.tutorial.btn('hola');
-  })
-})
+	$("#button").addEventListener("click", () => {
+		window.tutorial.btn("hola");
+	});
+
+	$("#version").innerHTML = (await window.tutorial.version()) ?? "No disponible";
+});
