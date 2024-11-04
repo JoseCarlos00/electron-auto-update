@@ -11,14 +11,8 @@ log.transports.file.level = "info";
 log.info("La aplicacion se ha iniciado");
 
 updateElectronApp({
-	updateSource: {
-		type: UpdateSourceType.ElectronPublicUpdateService,
-		repo: "JoseCarlos00/electron-auto-update",
-	},
-	updateInterval: "1 hour",
 	logger: log,
-	loggerSeverity: "info",
-	loggerPrefix: "Update",
+	notifyUser: true,
 });
 
 if (require("electron-squirrel-startup")) app.quit();
